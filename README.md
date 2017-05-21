@@ -1,14 +1,13 @@
 # Vagrant PrestaShop
 
-This project is dedicated to PrestaShop modules and theme developers which are
-searching for a rock solid and easy to setup development environment.
+Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un entorno Ubuntu Xenial y Nginx, MariaDB y PHP 7.1 realizando el aprovisionamiento desde Ansible en la máquina virtual.
 
-## Table Of Contents
+## Tabla de Contenidos
 
 - [Overview](#overview)
   - [PrestaShop](#prestashop)
   - [Vagrant](#vagrant)
-  - [Puppet](#puppet)
+  - [Ansible](#ansible)
   - [ngrok](#ngrok)
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
@@ -17,9 +16,9 @@ searching for a rock solid and easy to setup development environment.
   - [PHPmyAdmin](#phpmyadmin)
   - [XDebug](#xdebug)
   - [Vagrant](#vagrant)
-- [Development](#development)
-  - [Module](#module)
-  - [Theme](#theme)
+- [Desarrollo](#development)
+  - [Módulos](#module)
+  - [Temas](#theme)
   - [Expose local server](#expose-local-server)
 
 ## Overview

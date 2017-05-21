@@ -1,1 +1,48 @@
 ---
+- hosts: all
+
+  gather_facts: no
+  become: true
+
+  vars:
+    aptget_update_cache_valid_time: 1800
+    aptget_distupgrade: true
+
+    aptget_install:
+      - mc
+      - nano
+      - sysv-rc-conf
+      - python-pip
+      - python-dev
+      - libmysqlclient-dev
+      - python-jmespath
+
+    mariadb_databases: prestashop
+    mariadb_root_password: prestashop
+    mariadb_utiles_bd: true
+
+    nginx_vhosts_root: "/home/webs"
+
+    nginx_vhosts:
+      prestashop:
+        default_server: true # Sólo debe existir uno como default server
+        activado: true
+        archivo_conf: "prestashop.test.conf"
+        dominio: "prestashop.test"
+        sin_www:  true
+        ssl: false
+        root: "{{ nginx_vhosts_root }}/prestashop.test/public"
+        index: "index.html index.htm index.php"
+
+    nginx_vhosts_activados:
+      - prestashop.test.conf
+
+    prestashop_root_path: "{{ nginx_vhosts_root }}/prestashop.test/public"
+
+  roles:
+    - CarlosLongarela.apt
+    - CarlosLongarela.ntp
+    - CarlosLongarela.mariadb
+    - CarlosLongarela.php7
+    - CarlosLongarela.nginx
+    - CarlosLongarela.prestashop
