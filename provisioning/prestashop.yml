@@ -17,6 +17,14 @@
       - libmysqlclient-dev
       - python-jmespath
 
+    php_max_input_vars: 1000
+    php_memory_limit: 512M
+    php_display_errors: Off
+    php_post_max_size: 48M
+    php_upload_max_filesize: 12M
+    php_max_file_uploads: 20
+    php_date_timezone: Europe/Madrid
+
     mariadb_databases: prestashop
     mariadb_root_password: prestashop
     mariadb_utiles_bd: true
