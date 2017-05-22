@@ -39,6 +39,8 @@
         dominio: "prestashop.test"
         sin_www:  true
         ssl: false
+        cache_nginx: false
+        cms: "prestashop"
         root: "{{ nginx_vhosts_root }}/prestashop.test/public"
         index: "index.html index.htm index.php"
 

@@ -1,3 +1,5 @@
+ENV["LC_ALL"] = "eS_ES.UTF-8"
+
 Vagrant.configure("2") do |config|
     # Intentamos prevenir avisos 'stdin is not a tty'
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
@@ -43,13 +45,13 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder "./www/public", "/home/webs/prestashop.test/public",
         owner: "www-data",
         group: "www-data",
-        mount_options: ["dmode=775,fmode=664"],
+        mount_options: ["dmode=777,fmode=777"],
         create: true
 
     config.vm.synced_folder "./www/logs", "/home/webs/prestashop.test/logs",
         owner: "www-data",
         group: "www-data",
-        mount_options: ["dmode=775,fmode=664"],
+        mount_options: ["dmode=777,fmode=777"],
         create: true
 
     # Configuración específica del Provider
