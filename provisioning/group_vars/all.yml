@@ -1,0 +1,51 @@
+---
+aptget_update_cache_valid_time: 1800
+aptget_distupgrade: true
+
+aptget_install:
+  - mc
+  - nano
+  - sysv-rc-conf
+  - python-pip
+  - python-dev
+  - libmysqlclient-dev
+  - python-jmespath
+  - git
+  - composer
+
+php_max_input_vars: 1000
+php_memory_limit: 512M
+php_display_errors: Off
+php_post_max_size: 48M
+php_upload_max_filesize: 12M
+php_max_file_uploads: 20
+php_date_timezone: Europe/Madrid
+
+mariadb_databases:
+  - prestashop
+mariadb_root_password: prestashop
+mariadb_utiles_bd: true
+mariadb_cron_backup: false
+
+mariadb_phpmyadmin: true
+mariadb_phpmyadmin_root_path: "/home/webs/prestashop.test/public/phpmyadmin"
+
+nginx_vhosts_root: "/home/webs"
+
+nginx_vhosts:
+  prestashop:
+    default_server: true # Sólo debe existir uno como default server
+    activado: true
+    archivo_conf: "prestashop.test.conf"
+    dominio: "prestashop.test"
+    sin_www:  true
+    ssl: false
+    cache_nginx: false
+    cms: "prestashop"
+    root: "{{ nginx_vhosts_root }}/prestashop.test/public"
+    index: "index.html index.php"
+
+nginx_vhosts_activados:
+  - prestashop.test.conf
+
+prestashop_root_path: "{{ nginx_vhosts_root }}/prestashop.test/public"

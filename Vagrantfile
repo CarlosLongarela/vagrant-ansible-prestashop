@@ -1,4 +1,6 @@
-ENV["LC_ALL"] = "eS_ES.UTF-8"
+ENV["LC_ALL"] = "es_ES.UTF-8"
+ENV["PYTHONUNBUFFERED"] = "1"
+ENV["ANSIBLE_FORCE_COLOR"] = "true"
 
 Vagrant.configure("2") do |config|
     # Intentamos prevenir avisos 'stdin is not a tty'
@@ -41,6 +43,7 @@ Vagrant.configure("2") do |config|
     #config.vm.network "forwarded_port", guest: 80, host: 8383
     #config.vm.network "forwarded_port", guest: 3306, host: 3366
 
+
     # Directorios compartidos
     config.vm.synced_folder "./www/public", "/home/webs/prestashop.test/public",
         owner: "www-data",
@@ -62,7 +65,7 @@ Vagrant.configure("2") do |config|
 
     # Ejecutamos Ansible desde la máquina virtual para provisionar el software
     config.vm.provision "ansible_local" do |ansible|
-        ansible.playbook = "provisioning/prestashop.yml"
+        ansible.playbook = "provisioning/vagrant-prestashop.yml"
         ansible.galaxy_role_file = "provisioning/requirements.yml"
     end
 end
