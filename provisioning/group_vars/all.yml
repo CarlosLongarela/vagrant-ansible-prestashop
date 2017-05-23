@@ -10,6 +10,7 @@ aptget_install:
   - python-dev
   - libmysqlclient-dev
   - python-jmespath
+  - unzip
   - git
   - composer
 
@@ -23,12 +24,17 @@ php_date_timezone: Europe/Madrid
 
 mariadb_databases:
   - prestashop
+
+mariadb_users:
+  user1:
+    name: "prestashop"
+    password: "prestashop"
+    priv: "prestashop.*:ALL"
+
+
 mariadb_root_password: prestashop
 mariadb_utiles_bd: true
 mariadb_cron_backup: false
-
-mariadb_phpmyadmin: true
-mariadb_phpmyadmin_root_path: "/home/webs/prestashop.test/public/phpmyadmin"
 
 nginx_vhosts_root: "/home/webs"
 
@@ -43,9 +49,19 @@ nginx_vhosts:
     cache_nginx: false
     cms: "prestashop"
     root: "{{ nginx_vhosts_root }}/prestashop.test/public"
-    index: "index.html index.php"
+    index: "index.html index.htm index.php"
 
 nginx_vhosts_activados:
   - prestashop.test.conf
 
 prestashop_root_path: "{{ nginx_vhosts_root }}/prestashop.test/public"
+prestashop_db_create: 1
+prestashop_db_server: "localhost"
+prestashop_db_name: "prestashop"
+prestashop_db_user: "prestashop"
+prestashop_db_password: "prestashop"
+prestashop_language: "es"
+prestashop_country: "es"
+prestashop_timezone: "Europe/Madrid"
+
+phpmyadmin_folder: "{{ prestashop_root_path }}/phpmyadmin"

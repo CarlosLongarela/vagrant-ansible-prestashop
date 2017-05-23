@@ -29,6 +29,7 @@ Vagrant.configure("2") do |config|
     puts ""
     puts ""
     puts "\033[0m"
+
     # Box
     config.vm.box = "ubuntu/xenial64"
 
@@ -48,13 +49,13 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder "./www/public", "/home/webs/prestashop.test/public",
         owner: "www-data",
         group: "www-data",
-        mount_options: ["dmode=777,fmode=777"],
+        mount_options: ["dmode=775,fmode=644"],
         create: true
 
     config.vm.synced_folder "./www/logs", "/home/webs/prestashop.test/logs",
         owner: "www-data",
         group: "www-data",
-        mount_options: ["dmode=777,fmode=777"],
+        mount_options: ["dmode=755,fmode=755"],
         create: true
 
     # Configuración específica del Provider

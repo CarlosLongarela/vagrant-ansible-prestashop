@@ -2,4 +2,4 @@
 /www
 /*.log
 /provisioning/roles
-/provisioning/prestashop.retry
+/*.retry

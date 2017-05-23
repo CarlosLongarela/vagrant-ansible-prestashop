@@ -1,16 +1,16 @@
-# Vagrant PrestaShop
+# VAP (Vagrant Ansible PrestaShop)
 
-Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un entorno Ubuntu Xenial y Nginx, MariaDB y PHP 7.1 realizando el aprovisionamiento desde Ansible en la máquina virtual.
+VAP: Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un entorno Ubuntu Xenial y Nginx, MariaDB y PHP 7.1 realizando el aprovisionamiento desde Ansible en la máquina virtual Vagrant (con VirtualBox).
 
 ## Tabla de Contenidos
 
-- [Overview](#overview)
+- [Resumen](#resumen)
   - [PrestaShop](#prestashop)
   - [Vagrant](#vagrant)
   - [Ansible](#ansible)
   - [ngrok](#ngrok)
-- [Installation](#installation)
-- [Basic Usage](#basic-usage)
+- [Instalación](#instalación)
+- [Uso Básico](#uso-básico)
   - [Back Office](#back-office)
   - [MySQL](#mysql)
   - [PHPmyAdmin](#phpmyadmin)
@@ -19,9 +19,9 @@ Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un entor
 - [Desarrollo](#development)
   - [Módulos](#module)
   - [Temas](#theme)
-  - [Expose local server](#expose-local-server)
+  - [Acceder a servidor local](#acceder-a-servidor-local)
 
-## Overview
+## Resumen
 
 ### PrestaShop
 
@@ -47,16 +47,13 @@ Then, industry-standard provisioning tools such as shell scripts, Chef, or
 Puppet, can be used to automatically install and configure software on
 the machine.
 
-The development environment is based on Ubuntu 16.04 LTS (Xenial Xerus).
+La máquina virtual está basada en Ubuntu 16.04 LTS (Xenial Xerus).
 
-### Puppet
+### Ansible
 
-[Puppet](https://puppet.com/), an automated administrative engine
-for your Linux, Unix, and Windows systems, performs administrative
-tasks (such as adding users, installing packages, and updating
-server configurations) based on a centralized specification.
+[Ansible](https://www.ansible.com/), es una herramienta de aprovisionamiento para sistemas Linux, Unix, y Window, que realiza tareas administrativas como instalar paquetes, configurar servicios, añadir bases de datos y usuarios, etc. desde un terminal y sin instalar nada en el servidor (sólo requiere acceso por SSH).
 
-The development environment includes Puppet by default.
+No es necesario tener instalado Ansible ne nuestro sistema ya que se ejecuta desde la propia virtual al utilizar `ansible_local`.
 
 ### ngrok
 
@@ -67,110 +64,88 @@ such as when you want to show your client the current development status,
 but you haven't yet deployed your code to an Internet accessible
 host or PaaS.
 
-## Installation
+## Instalación
 
-First, you need to make sure that you have [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and
-[Vagrant](https://www.vagrantup.com/downloads.html) installed.
+Primero, tenemos que asegurarnos que tenemos [VirtualBox](https://www.virtualbox.org/wiki/Downloads) y
+[Vagrant](https://www.vagrantup.com/downloads.html) instalados.
 
-Then open up a terminal window and `cd` into the directory containing this README:
+Después abrimos el terminal y `cd` en el directorio que contiene este README:
 
 ```shell
-$ cd your-path-to-the-project
+$ cd RUTA-AL-PROYECTO
 ```
 
-Now you only need to fire up Vagrant and everything will be installed and configured:
+Ahora sólo necesitamos levantar Vagrant y se instalará y configurará todo:
 
 ```shell
 $ vagrant up
 ```
 
-## Basic Usage
+## Uso Básico
 
-### Back Office
+### Panel de contro PrestaShop
 
-You can access the back office by the following url:
+Se puede acceder al panel de control del PrestaShop en la siguiente url:
 
-- [127.0.0.1:8080/admin123](http://127.0.0.1:8383/admin123)
+- [prestashop.test/admin123](http://prestashop.test/adminvap72)
 
-To log into the back office use the credentials below:
+Para autenticarse en el panel de control utilizaremos las siguientes credenciales:
 
-- User: dev@prestashop.com
-- Pass: prestashop
+- Usuario: dev@prestashop.com
+- Clave: prestashop
 
-### MySQL
+### MariaDB
 
-You can access the MySQL database with the following credentials:
+Se puede acceder a la base de datos MariaDB con las siguientes credenciales:
 
 - Host: localhost
-- Port: 3366
+- Puerto: 3366
 - DB: prestashop
-- User: prestashop
-- Pass: prestashop
+- Usuario: prestashop
+- Clave: prestashop
 
 ### PHPmyAdmin
 
-You can access PHPmyAdmin by the following url:
+Se puede acceder al PHPmyAdmin desde la siguiente url:
 
-- [127.0.0.1:8080/phpmyadmin](http://127.0.0.1:8383/phpmyadmin)
+- [prestashop.test/phpmyadmin](http://prestashop.test/phpmyadmin)
+- Usuario: prestashop
+- Contraseña: prestashop
 
 ### XDebug
 
 XDebug is included and enabled by default.
 
-To configure XDebug you need to:
+Para configurar XDebug necesitamos:
 
 - set the server source root to `/var/www/`
 - set the local source root to your current workspace
 
-Now you can connect to XDebug on port 9000
+Ahora nos conectamos a XDebug en el puerto 9000
 
-Note: All XDebug settings can be configured in the php.ini file located in
-the puppet directory.
+Nota: Las configuraciones de XDebug se pueden configurar en el php.ini del rol _CarlosLongarela.php7_.
 
 ### Vagrant
 
-Vagrant is [very well documented](https://www.vagrantup.com/docs/) but here are a few common commands:
+Vagrant está [muy bien documentada](https://www.vagrantup.com/docs/) pero aquí están algunos comandos:
 
-- `vagrant up` - starts the virtual machine and provisions it
-- `vagrant suspend` - will essentially put the machine to 'sleep' with vagrant resume waking it back up
-- `vagrant halt` - attempts a graceful shutdown of the machine and will need to be brought back with vagrant up
-- `vagrant ssh` - gives you shell access to the virtual machine
+- `vagrant up` - inicia la máquina virtual y la aprovisiona
+- `vagrant suspend` - pone la máquina virtual _a dormir_ y con `vagrant resume` la devolvemos a su estado anterior
+- `vagrant halt` - realiza un apagado ordenado de la máquina virtual
+- `vagrant reload` - realiza un reinicio de la máquina virtual
+- `vagrant ssh` - se conecta a la máquina virtual por ssh
 
-## Development
+Usuario ssh: ubuntu
 
-### Module
+## Desarrollo
 
-To develop a PrestaShop module you only have to change Vagrant's synchronized directory. To do so, you
-need to change the directory in the `Vagrantfile` to match your module name. And create a `src` directory in
-the project root. For example:
 
-```
-config.vm.synced_folder "./src", "/var/www/modules/examplemodule"
-```
+Para el desarrollo tanto de módulos como de temas de PrestaShop, tenemos compartido el directorio raíz de la web de PrestaShop, por lo que podemos editar con nuestras herramientas favoritas de desarrollo desde `./www/public` en nuestra máquina local.
 
-to
+- *Temas* en `./www/public/themes`
+- *Módulos* en `./www/public/modules`
 
-```
-config.vm.synced_folder "./src", "/var/www/modules/moduleXYZ"
-```
-
-### Theme
-
-To develop a PrestaShop theme you only have to change Vagrant's synchronized directory. To do so, you
-need to change the directory in the `Vagrantfile` to match your theme name. And create a `src` directory in
-the project root. For example:
-
-```
-config.vm.synced_folder "./src", "/var/www/modules/examplemodule"
-```
-
-to
-
-```
-config.vm.synced_folder "./src", "/var/www/themes/themeXYZ"
-```
-
-### Expose local server
+### Acceder a servidor local
 
 Don’t constantly redeploy your in-progress work to get feedback from clients.
 ngrok creates a secure public URL (https://yourapp.ngrok.io) to a local webserver
