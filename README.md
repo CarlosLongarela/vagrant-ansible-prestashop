@@ -91,7 +91,7 @@ Se puede acceder al panel de control del PrestaShop en la siguiente url:
 
 Para autenticarse en el panel de control utilizaremos las siguientes credenciales:
 
-- Usuario: dev@prestashop.com
+- Usuario: vap@prestashop.test
 - Clave: prestashop
 
 ### MariaDB
@@ -142,8 +142,8 @@ Usuario ssh: ubuntu
 
 Para el desarrollo tanto de módulos como de temas de PrestaShop, tenemos compartido el directorio raíz de la web de PrestaShop, por lo que podemos editar con nuestras herramientas favoritas de desarrollo desde `./www/public` en nuestra máquina local.
 
-- *Temas* en `./www/public/themes`
-- *Módulos* en `./www/public/modules`
+- **Temas** en `./www/public/themes`
+- **Módulos** en `./www/public/modules`
 
 ### Acceder a servidor local
 

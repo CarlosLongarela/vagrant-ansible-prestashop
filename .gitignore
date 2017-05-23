@@ -2,4 +2,4 @@
 /www
 /*.log
 /provisioning/roles
-/*.retry
+/*/*.retry

@@ -59,9 +59,18 @@ prestashop_db_create: 1
 prestashop_db_server: "localhost"
 prestashop_db_name: "prestashop"
 prestashop_db_user: "prestashop"
+prestashop_db_prefix: "vap_"
 prestashop_db_password: "prestashop"
 prestashop_language: "es"
 prestashop_country: "es"
 prestashop_timezone: "Europe/Madrid"
+
+prestashop_firstname: "VAP"
+prestashop_lastname: "Developer"
+prestashop_password: "prestashop"
+prestashop_email: "vap@prestashop.test"
+
+prestashop_admin_folder_name: "adminvap72"
+prestashop_check_file_name: "prestashop-vap-installed.txt"
 
 phpmyadmin_folder: "{{ prestashop_root_path }}/phpmyadmin"
