@@ -1,8 +1,8 @@
 ---
 - src: CarlosLongarela.apt
-#- src: CarlosLongarela.mariadb
-#- src: CarlosLongarela.nginx
-#- src: CarlosLongarela.ntp
-#- src: CarlosLongarela.php7
+- src: CarlosLongarela.mariadb
+- src: CarlosLongarela.nginx
+- src: CarlosLongarela.ntp
+- src: CarlosLongarela.php7
 - src: CarlosLongarela.phpmyadmin
 - src: CarlosLongarela.prestashop
