@@ -56,6 +56,7 @@ nginx_vhosts_activados:
 
 prestashop_root_path: "{{ nginx_vhosts_root }}/prestashop.test/public"
 prestashop_db_create: 1
+prestashop_db_clear: 1
 prestashop_db_server: "localhost"
 prestashop_db_name: "prestashop"
 prestashop_db_user: "prestashop"
