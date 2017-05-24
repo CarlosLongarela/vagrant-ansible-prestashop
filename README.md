@@ -152,6 +152,8 @@ Para el desarrollo tanto de módulos como de temas de PrestaShop, tenemos compar
 
 ### Acceder a servidor local
 
+_(en construcción)_
+
 No es necesario subir el código a un website accesible desde Internet continuamente para obtener feedback del clientes.
 ngrok crea una URL pública segura (https://yourapp.ngrok.io) al servidor local en tu máquina.
 
