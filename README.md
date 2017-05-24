@@ -96,7 +96,7 @@ Para autenticarse en el panel de control utilizaremos las siguientes credenciale
 
 ### MariaDB
 
-Se puede acceder a la base de datos MariaDB con las siguientes credenciales:
+Se puede acceder a la base de datos MariaDB con las siguientes credenciales _(en construcción)_:
 
 - Host: localhost
 - Puerto: 3366
