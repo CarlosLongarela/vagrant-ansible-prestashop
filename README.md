@@ -1,3 +1,25 @@
+
+
+      .----------------.   .----------------.   .----------------.
+      | .--------------. | | .--------------. | | .--------------. |
+      | | ____   ____  | | | |      __      | | | |   ______     | |
+      | ||_  _| |_  _| | | | |     /  \     | | | |  |_   __ \   | |
+      | |  \ \   / /   | | | |    / /\ \    | | | |    | |__) |  | |
+      | |   \ \ / /    | | | |   / ____ \   | | | |    |  ___/   | |
+      | |    \ ' /     | | | | _/ /    \ \_ | | | |   _| |_      | |
+      | |     \_/      | | | ||____|  |____|| | | |  |_____|     | |
+      | |              | | | |              | | | |              | |
+      | '--------------' | | '--------------' | | '--------------' |
+      '----------------'   '----------------'   '----------------'
+
+      Vagrant              Ansible             Prestashop
+
+      v: 1.0.0"
+      By: Carlos Longarela"
+
+      Docs:       https://github.com/CarlosLongarela/vagrant-ansible-prestashop
+
+
 # VAP (Vagrant Ansible PrestaShop)
 
 VAP: Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un entorno Ubuntu Xenial y Nginx, MariaDB y PHP 7.1 realizando el aprovisionamiento desde Ansible en la máquina virtual Vagrant (con VirtualBox).
