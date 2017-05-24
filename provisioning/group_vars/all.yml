@@ -13,6 +13,7 @@ aptget_install:
   - unzip
   - git
   - composer
+  - ngrok-client
 
 php_max_input_vars: 1000
 php_memory_limit: 512M

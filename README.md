@@ -47,27 +47,15 @@ VAP: Proyecto para el desarrollo de módulos y temas de PrestaShop 1.7.1 con un 
 
 ### PrestaShop
 
-PrestaShop is a free and Open Source e-commerce web application, committed to
-providing the best shopping cart experience for both merchants and customers.
-It is written in PHP, is highly customizable, supports all the major payment
-services, is translated in many languages and localized for many countries,
-has a fully responsive design (both front and back office), etc.
+[PrestaShop](https://www.prestashop.com/es) Es un sistema gestor de contenidos (CMS) libre y de código abierto. Su principal aplicación es la creación de tiendas online de comercio electrónico. Prestashop es compatible con las pasarelas de pago como DirecPay, Google CheckOut, Banamex, Authorize.net, Moneybookers, PayPal, MercadoPago, Oxxo. También se ofrecen módulos de pago adicionales en el mercado. [Wikipedia](https://es.wikipedia.org/wiki/PrestaShop)
 
-The development environment includes PrestaShop version 1.7.1
+El entorno de desarrollo incluye PrestaShop 1.7.1
 
 ### Vagrant
 
-[Vagrant](https://www.vagrantup.com/) provides easy to configure,
-reproducible, and portable work environments built on top of
-industry-standard technology and controlled by a single consistent
-workflow to help maximize the productivity and flexibility of
-you and your team.
+[Vagrant](https://www.vagrantup.com/) Vagrant es una herramienta para la creación y configuración de entornos de desarrollo virtualizados.
 
-To achieve its magic, Vagrant stands on the shoulders of giants. Machines
-are provisioned on top of VirtualBox, VMware, AWS, or any other provider.
-Then, industry-standard provisioning tools such as shell scripts, Chef, or
-Puppet, can be used to automatically install and configure software on
-the machine.
+Originalmente se desarrolló para VirtualBox y sistemas de configuración tales como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc. Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de proyectos escritos en otros lenguajes, tales como PHP, Python, Java, C# y JavaScript. [Wikipedia](https://es.wikipedia.org/wiki/Vagrant_(software))
 
 La máquina virtual está basada en Ubuntu 16.04 LTS (Xenial Xerus).
 
@@ -79,12 +67,7 @@ No es necesario tener instalado Ansible ne nuestro sistema ya que se ejecuta des
 
 ### ngrok
 
-[ngrok](https://ngrok.com/) is a handy tool and service that allows you
-tunnel requests from the wide open Internet to your local machine when
-it's behind a NAT or firewall. This is useful in a number of cases,
-such as when you want to show your client the current development status,
-but you haven't yet deployed your code to an Internet accessible
-host or PaaS.
+[ngrok](https://ngrok.com/) es una herramienta y servicio que permite realizar tuneling de las peticiones desde Intenert a la máquina local aunque esté detrás de una NAT o firewall. Esto es útil en multitud de casos, como por ejemplo si queremos mostrar a un cliente el actual estado de desarrollo pero aún no hemos hecho *deploy* del código a un sitio web accesible desde Internet.
 
 ## Instalación
 
@@ -136,16 +119,16 @@ Se puede acceder al PHPmyAdmin desde la siguiente url:
 
 ### XDebug
 
-XDebug is included and enabled by default.
+XDebug _(en construcción)_.
 
 Para configurar XDebug necesitamos:
 
-- set the server source root to `/var/www/`
-- set the local source root to your current workspace
+- fijar la ruta raíz del proyecto remoto a  `/home/webs/prestashop.test/prestashop`
+- fijar la ruta raíz del proyecto local al workspace actual
 
 Ahora nos conectamos a XDebug en el puerto 9000
 
-Nota: Las configuraciones de XDebug se pueden configurar en el php.ini del rol _CarlosLongarela.php7_.
+Nota: Las configuraciones de XDebug se pueden asignar en el php.ini del rol _CarlosLongarela.php7_.
 
 ### Vagrant
 
@@ -169,12 +152,10 @@ Para el desarrollo tanto de módulos como de temas de PrestaShop, tenemos compar
 
 ### Acceder a servidor local
 
-Don’t constantly redeploy your in-progress work to get feedback from clients.
-ngrok creates a secure public URL (https://yourapp.ngrok.io) to a local webserver
-on your machine. Iterate quickly with immediate feedback without interrupting
-flow.
+No es necesario subir el código a un website accesible desde Internet continuamente para obtener feedback del clientes.
+ngrok crea una URL pública segura (https://yourapp.ngrok.io) al servidor local en tu máquina.
 
-To expose your local server you need to do the following steps:
+Para exponer el servidor local, necesitamos realizar los siguientes pasos:
 
 ```
 $ vagrant ssh
@@ -182,7 +163,6 @@ $ cd /var/www
 $ ./ngrok http 80
 ```
 
-Now you only need to copy the public URL and send it to your client.
+Ahora sólo necesitamos copiar la URL pública y enviársela al cliente.
 
-CAUTION: You need to change the PrestaShop Site URL to the public ngrok URL.
-Otherwise PrestaShop will redirect you to localhost.
+PRECAUCIÓN: Se necesita cambiar la URL del sitio web de PrestaShop a la URL pública de ngrok, sino PrestaShop te redirigirá a localhost.
