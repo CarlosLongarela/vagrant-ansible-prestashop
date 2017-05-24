@@ -37,6 +37,34 @@ mariadb_root_password: prestashop
 mariadb_utiles_bd: true
 mariadb_cron_backup: false
 
+
+mariadb_options:
+  bind_address: '127.0.0.1'
+  performance_schema: on
+  skip_name_resolve: 1
+  max_connections: 100
+  connect_timeout: 2
+  max_allowed_packet: 10M
+  innodb_buffer_pool_instances: 1
+  innodb_buffer_pool_size: 50M
+  innodb_log_file_size: 12M
+  table_cache: 1000
+  tmp_table_size: 50M
+  max_heap_table_size: 25M
+  query_cache_type: 1
+  query_cache_limit: 2M
+  query_cache_size: 10M
+  query_cache_min_res_unit: 2k
+  join_buffer_size: 512k
+  sort_buffer_size: 512k
+  read_buffer_size: 512k
+  read_rnd_buffer_size: 1M
+  key_buffer: 125M
+  slow_query_log: true
+  long_query_time: 3
+  log_slow_admin_statements: true
+  log_queries_not_using_indexes: true
+
 nginx_vhosts_root: "/home/webs"
 
 nginx_vhosts:
@@ -49,6 +77,7 @@ nginx_vhosts:
     ssl: false
     cache_nginx: false
     cms: "prestashop"
+    prestashop_admin: "adminvap72"
     root: "{{ nginx_vhosts_root }}/prestashop.test/public"
     index: "index.html index.htm index.php"
 
