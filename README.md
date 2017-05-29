@@ -1,3 +1,5 @@
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/CarlosLongarela/vagrant-ansible-prestashop.svg)](http://isitmaintained.com/project/CarlosLongarela/vagrant-ansible-prestashop "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/CarlosLongarela/vagrant-ansible-prestashop.svg)](http://isitmaintained.com/project/CarlosLongarela/vagrant-ansible-prestashop "Average time to resolve an issue")
 
 
       .----------------.   .----------------.   .----------------.
